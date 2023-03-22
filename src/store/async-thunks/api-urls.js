@@ -1,0 +1,1 @@
+export const GET_ALL_PERSONS = `${process.env.REACT_APP_API_BASE_URL}/persons/get/all`;
