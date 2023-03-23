@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import "assets/plugins/nucleo/css/nucleo.css";
@@ -29,9 +29,21 @@ import AuthLayout from "layouts/Auth.js";
 import store from './store/store';
 import { Provider } from 'react-redux';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const root = createRoot(document.getElementById("root"));
 
-root.render(
+// root.render(
+//   <Provider store={store}>
+//     <BrowserRouter>
+//       <Switch>
+//         <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+//         <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+//         <Redirect from="/" to="/admin/index" />
+//       </Switch>
+//     </BrowserRouter>
+//   </Provider>
+// );
+
+ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
@@ -40,5 +52,6 @@ root.render(
         <Redirect from="/" to="/admin/index" />
       </Switch>
     </BrowserRouter>
-  </Provider>
-);
+  </Provider>,
+  document.getElementById("root")
+)
